@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors</title>
+</head>
+<body>
+  <script>
+    const playerSelection = 6;
+    const compSelection = 5;
+    
+    function getPlayerChoice() {
+      let choice = prompt('Rock, Paper, Scissors?').toLowerCase();
+      while (choice !== 'rock' && choice !== 'paper' && choice !== 'scissors')
+        choice = prompt('Need to choose "Rock", "Paper", or "Scissors"!').toLowerCase();
+      const selection = choice.charAt(0).toUpperCase() + choice.slice(1);
+      return selection
+    }
+
+    function getComputerChoice() {
+      let choice = Math.floor(Math.random() * 3);
+      if (choice === 0) 
+        choice = 'Rock';
+      else if (choice === 1) 
+        choice = 'Paper';
+      else 
+        choice = 'Scissors';
+      return choice;
+    }
+
+    function playRound(playerSelection, compSelection) {
+      if (playerSelection === compSelection) {
+        result = 'You tied, try again!';
+      }
+      else if (playerSelection === 'Rock') {
+        if(compSelection === 'Scissors')
+          result = 'Congrats you Won! ' + playerSelection + ' beats ' + compSelection + '.';
+        else
+          result = 'You lost! ' + compSelection + ' beats ' + playerSelection + '.';
+      }
+      else if (playerSelection === 'Paper') {
+        if (compSelection === 'Rock')
+          result = 'Congrats you Won! ' + playerSelection + ' beats ' + compSelection + '.';
+        else 
+          result = 'You lost! ' + compSelection + ' beats ' + playerSelection + '.';
+      }
+      else {
+        if (compSelection === 'Paper')
+          result = 'Congrats you Won! ' + playerSelection + ' beats ' + compSelection + '.';
+        else 
+          result = 'You lost! ' + compSelection + ' beats ' + playerSelection + '.';
+      }
+      return result;
+    }
+
+
+
+    function game() {
+      let playerScore = 0;
+      let compScore = 0;
+      for (let i = 0; i < 5; i++) {
+        let result = playRound(getPlayerChoice(), getComputerChoice());
+        console.log(result);
+        if (result === 'You tied, try again!')
+          i--;
+        else if (result < 'Y')
+          playerScore++;
+        else
+          compScore++;
+        console.log('Player Score: ' + playerScore + 'Computer Score: ' + compScore);
+      }
+    }
+    game();
+
+  </script>
+  
+</body>
+</html>
+
+<!-- 1) Ask for input
+    * Should have contingency set up for dumb/malicious people
+  2) Randomize computer choice
+  3) compare choices to find winner
+    * if tie go back to start -->
