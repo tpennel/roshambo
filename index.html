@@ -29,8 +29,8 @@
     }
 
     function playRound(playerSelection, compSelection) {
-      const won= 'Congrats you Won! ' + playerSelection + ' beats ' + compSelection + '.';
-      const lost = 'You lost! ' + compSelection + ' beats ' + playerSelection + '.';
+      const won= `Congrats you Won! ${playerSelection} beats ${compSelection}.`;
+      const lost = `You lost! ${compSelection} beats ${playerSelection}.`;
 
       if (playerSelection === compSelection) {
         result = 'You tied, try again!';
@@ -70,7 +70,7 @@
           playerScore++;
         else
           compScore++;
-        console.log('Player Score: ' + playerScore + ' Computer Score: ' + compScore);
+        console.log(`Player Score: ${playerScore} Computer Score: ${compScore}`);
       }
     }
     game();
