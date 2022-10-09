@@ -1,0 +1,113 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  line-height: 1.25;
+  font-family: comicRunes, sans-serif;
+  color: rgb(77, 77, 77);;
+}
+
+body {
+  background-image: url('images/paper-backround.jpg');
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.header {
+  color: rgb(77, 77, 77);
+  display: flex;
+  justify-content: center;
+  font-size: 60px;
+  font-family: comicRunes, sans-serif;
+  text-align: center;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 30px;
+}
+
+.icons .container {
+  display: flex;
+}
+
+.icon {
+  text-align: center;
+  color: rgb(77, 77, 77);
+  font-size: 30px;
+  margin: 20px;
+  border: none;
+  background: transparent;
+  opacity: 0.5;
+  transition: all 0.5s;
+}
+
+.icon img {
+  max-width: 200px;
+  height: auto;
+}
+
+.hover:hover {
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+
+.gameMessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  min-height: 80px;
+}
+
+.scoreBoard {
+  display: flex;
+  justify-content: center;
+}
+
+.scoreBoard .container {
+  display: flex;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+.score {
+  border: thick double rgb(77, 77, 77);;
+  text-align: center;
+  font-size: 30px;
+  padding: 20px;
+  min-width: 200px;
+}
+
+.end .container {
+  display: flex;
+  justify-content: center;
+}
+
+.endButton {
+  border: thick double rgb(77, 77, 77);
+  padding: 20px;
+  font-size: 30px;
+}
+
+.endButton:hover {
+  cursor: pointer;
+}
+
+.disabled {
+  visibility: hidden
+}
+
+@font-face {
+  font-family: comicRunes;
+  src: url(fonts/comic_runes/ComicRunes.otf);
+}
+

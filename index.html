@@ -4,84 +4,64 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css-style.css">
   <title>Roshambo</title>
 </head>
 <body>
-  <script>
-    
-    function getPlayerChoice() {
-      let choice = prompt('Rock, Paper, Scissors?').toLowerCase();
-      while (choice !== 'rock' && choice !== 'paper' && choice !== 'scissors')
-        choice = prompt('Need to choose "Rock", "Paper", or "Scissors"!').toLowerCase();
-      const selection = choice.charAt(0).toUpperCase() + choice.slice(1);
-      return selection
-    }
 
-    function getComputerChoice() {
-      let choice = Math.floor(Math.random() * 3);
-      if (choice === 0) 
-        choice = 'Rock';
-      else if (choice === 1) 
-        choice = 'Paper';
-      else 
-        choice = 'Scissors';
-      return choice;
-    }
+  <header class="header">
+    <div class="container">
+      <h1>Roshambo</h1>
+      <p>First to 5 wins!</p>
+      <p style="font-size: 40px;">Rock beats Scissors, <br>
+        Paper beats Rock, <br>
+        Scissors beats Paper!
+      </p>
+    </div>
+  </header>
 
-    function playRound(playerSelection, compSelection) {
-      const won= `Congrats you Won! ${playerSelection} beats ${compSelection}.`;
-      const lost = `You lost! ${compSelection} beats ${playerSelection}.`;
+<div class="icons">
+  <div class="container">
+    <button class="icon rock hover">
+      <p>Rock</p>
+      <img src="icons/rock.png" alt="rock">
+    </button>
+    <button class="icon paper hover">
+      <p>Paper</p>
+      <img src="icons/paper.png" alt="paper">
+    </button>
+    <button class="icon scissors hover">
+      <p>Scissors</p>
+      <img src="icons/scissors.png" alt="scissors">
+    </button>
+  </div>
+</div>
 
-      if (playerSelection === compSelection) {
-        result = 'You tied, try again!';
-      }
-      else if (playerSelection === 'Rock') {
-        if(compSelection === 'Scissors')
-          result = won;
-        else
-          result = lost;
-      }
-      else if (playerSelection === 'Paper') {
-        if (compSelection === 'Rock')
-          result = won;
-        else 
-          result = lost;
-      }
-      else {
-        if (compSelection === 'Paper')
-          result = won;
-        else 
-          result = lost;
-      }
-      return result;
-    }
+<div class="gameMessage">
+  <div class="container">
+    <p class="message"></p>
+  </div>
+</div>
 
-
-
-    function game() {
-      let playerScore = 0;
-      let compScore = 0;
-      for (let i = 0; i < 5; i++) {
-        let result = playRound(getPlayerChoice(), getComputerChoice());
-        console.log(result);
-        if (result === 'You tied, try again!')
-          i--;
-        else if (result < 'Y')
-          playerScore++;
-        else
-          compScore++;
-        console.log(`Player Score: ${playerScore} Computer Score: ${compScore}`);
-      }
-    }
-    game();
-
-  </script>
-  
+<div class="scoreBoard">
+  <div class="container">
+    <div class="score">
+      Player Score
+      <p class="playerScore">0</p>
+    </div>
+    <div class="score">
+      Comp Score
+      <p class="compScore">0</p>
+    </div>
+  </div>
+</div>
+<div class="end" >
+  <div class="container">
+    <div class="endButton disabled">
+      Reset Game
+    </div>
+  </div>
+</div>
+<script src="js-file.js"></script>
 </body>
 </html>
-
-<!-- 1) Ask for input
-    * Should have contingency set up for dumb/malicious people
-  2) Randomize computer choice
-  3) compare choices to find winner
-    * if tie go back to start -->
